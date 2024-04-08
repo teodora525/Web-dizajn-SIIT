@@ -1,33 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #dfecff;
-    color: rgb(20, 20, 189);
+    background-color: #EEE0CB;
+    color: #36453B;
+    font-family: 'Montserrat', sans-serif;
 
     
 }
 
 nav {
-    background-color: #fff;
-    color: rgb(20, 20, 189);
+    background-color: #EEE0CB;
+    color: #36453B;
     padding: 10px;
     text-align: center;
     position: fixed;
     top: 0;
     width: 100%; 
-    border-bottom: rgb(20, 20, 189);
+    border-bottom: #C2C1A5;
 
 }
 nav a {
-    color: rgb(20, 20, 189);
+    color: #36453B;
     text-decoration: none;
     margin: 0 10px;
     padding: 5px 10px;
     border-radius: 5px;
 }
 nav a:hover {
-    background-color: rgb(20, 20, 189);
+    background-color: #C2C1A5;
     color: #fff;
 }
 
@@ -42,18 +45,18 @@ nav a:hover {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    background-color: rgb(20, 20, 189);
+    background-color: #704E2E;
     border-radius: 5px;
   }
   
   .dropbtn:hover {
-    background-color:  rgb(20, 20, 189);
+    background-color:  #C2C1A5;
   }
   
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color:  rgb(20, 20, 189);
+    background-color:  #704E2E;
     min-width: 160px;
     z-index: 1;
     border-radius: 5px;
@@ -67,7 +70,7 @@ nav a:hover {
   }
   
   .dropdown-content a:hover {
-    background-color:  rgb(20, 20, 189);
+    background-color:  #C2C1A5
   }
   
   .dropdown:hover .dropdown-content {
@@ -75,16 +78,17 @@ nav a:hover {
   }
 
 header {
-    background-color:  rgb(20, 20, 189);
+    background-color:  #C2C1A5;
     color: #fff;
     padding: 10px;
     margin-top: 40px;
     text-align: center;
+    text-transform: uppercase;
 }
 footer {
-    background-color: rgb(20, 20, 189);
+    background-color: #C2C1A5;
     color: #fff;
-    padding: 15px 0;
+    padding: 30px 0;
     text-align: center;
     width: 100%;
     bottom: 0;
@@ -95,6 +99,7 @@ footer {
 }
 h2 {
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 .organizatori-lista {
     list-style: none;
@@ -103,25 +108,25 @@ h2 {
 .organizatori-lista li {
     margin-bottom: 10px;
     text-transform: uppercase;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     font-weight: 900;
     text-decoration: none;
     color: #fff;
-    background-color: rgb(146, 146, 228);
-    border-radius: 5px;
+    background-color: #79745C;
+    border-radius: 15px;
 }
 .organizatori-lista li a {
     color: #fff; 
     text-decoration: none; 
 }
 .organizatori-lista li:hover {
-    background-color:  rgb(20, 20, 189);
+    background-color:  #704E2E;
     cursor: pointer;
 }
 
 .container {
-    width: 80%;
+    width: 60%;
     margin: 20px auto;
 }
 
@@ -153,12 +158,16 @@ h2 {
     height: 200px; 
     object-fit: cover; 
     border-radius: 5px;
+    transition: transform 0.3s ease; 
 }
 
+.organizator-item img:hover {
+    transform: scale(1.1); 
+}
 .organizator-item h2 {
     margin-top: 10px;
     font-size: 1.2rem;
-    color:  rgb(20, 20, 189); 
+    color:  #704E2E; 
     text-decoration: none; 
     text-transform: uppercase; 
 }
@@ -169,21 +178,22 @@ table {
     width: 70%; 
     border-collapse: collapse;
     overflow: hidden;
+    color: #36453B;
 }
 
 th, td {
-    border: 2px solid rgb(20, 20, 189);
-    padding: 12px; /* Povećana veličina paddinga */
+    border: 2px solid #b48253;
+    padding: 12px; 
     text-align: center;
     
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #BAA898;
     font-weight: bold; 
     text-transform: uppercase;
     text-align: center;
-    color: #06173b; 
+    color: #36453B; 
 }
 
 tr:nth-child() {
@@ -191,6 +201,6 @@ tr:nth-child() {
 }
 
 tr:hover {
-    background-color: #f5f5f5; 
+    background-color: #BAA898; 
 }
 
