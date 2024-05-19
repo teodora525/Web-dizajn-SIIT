@@ -14,12 +14,14 @@
         <div class="dropdown">
             <button class="dropbtn">Izmena</button>
             <div class="dropdown-content">
-                <a href="#">Organizatori</a>
+                <a href="organizatori_admin.html">Organizatori</a>
                 <a href="#">Festivali</a>
-                <a href="#">Korisnici</a>
+                <a href="korisnici.html">Korisnici</a>
             </div>
         </div>
         <a href="#">Kontakt</a>
+        <button id="loginBtn">Prijavi se</button>
+        <button id="registerBtn">Registracija</button>
     </nav>
     <header>
         <h1>Lista Organizatora Festivala</h1>
@@ -37,10 +39,68 @@
             <li>BeoArt Fest</li>
         </ul>
     </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Prijava</h2>
+          <form>
+            <label for="username">Korisničko ime:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Lozinka:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Prijavi se</button>
+          </form>
+        </div>
+    </div>
+
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Registracija</h2>
+            <form id="registerForm">
+                <label for="firstName">Ime:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Prezime:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="address">Adresa:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="dob">Datum rođenja:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username">Korisničko ime:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Lozinka:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="phone">Telefon:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <small>Format: 123-456-7890</small>
+
+            <label for="occupation">Zanimanje:</label>
+            <input type="text" id="occupation" name="occupation" required>
+                <button type="submit">Registruj se</button>
+            </form>
+        </div>
+    </div>
+
+
+
     <footer>
         <p>&copy; 2024 Organizatori Festivala. Sva prava zadržana.</p>
         <p>Kontakt: +123456789</p>
         <p>Email: info@organizatorifestivala.com</p>
     </footer>
+
+    <script src="modal.js"></script>
+
 </body>
 </html>

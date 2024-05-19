@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korisnici</title>
+    <link rel="stylesheet" href="../styles/style.css"> 
+
+</head>
+<body>
+    <nav>
+        <a href="index.html">Početna</a>
+        <a href="organizatori.html">Organizatori</a>
+        <a href="festivali.html">Festivali</a>
+        <div class="dropdown">
+            <button class="dropbtn">Izmena</button>
+            <div class="dropdown-content">
+                <a href="organizatori_admin.html">Organizatori</a>
+                <a href="#">Festivali</a>
+                <a href="#">Korisnici</a>
+            </div>
+        </div>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <header>
+        <h1>KORISNICI</h1>
+    </header>
+
+    <table class="tabela">
+        <thead>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Korisničko ime</th>
+            <th>Lozinka</th>
+            <th>e-mail</th>
+            <th>Datum rođenja</th>
+            <th>Adresa</th>
+            <th>Telefon</th>
+            <th>Zanimanje</th>
+            <th colspan="2"></th>
+        </thead>
+        <tbody id="korisnici">
+            <script src="js/korisnici.js"></script>
+        </tbody>
+    </table>
+
+    <footer style="margin-top: 165px;">
+        <p>&copy; 2024 Organizatori Festivala. Sva prava zadržana.</p>
+        <p>Kontakt: +123456789</p>
+        <p>Email: info@organizatorifestivala.com</p>
+    </footer>
+</body>
+</html>
