@@ -3,7 +3,7 @@ import './KorisnikAdminCard.css';
 //import { useNavigate } from 'react-router-dom';
 
 
-const KorisnikAdminCard = ({korisnik, handlePutKorisnik, handleEditKorisnik, handleDeleteKorisnik}) => {
+const KorisnikAdminCard = ({korisnik, handleEditKorisnik, handleDeleteKorisnik}) => {
 
     const [popup, setPopup] = useState(false);
 

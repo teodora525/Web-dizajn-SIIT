@@ -57,27 +57,6 @@ export default function App() {
 	festivaliOrganizatora.forEach((f) => {
 			objtoar(f).forEach(ff => sviFestivali.push(ff));
 		});
-	//objtoar(of.festivali).forEach((f) => {
-	//	objtoar(f).forEach(ff => sviFestivali.push(ff));
-	//);
-
-	
-	//const orgs = objtoar(organizatoriFestivala);
-
-	//const fests = objtoar(of.festivali); 
-	
-	
-	/* Object.keys(of.festivali)
-		.forEach((k) => {
-			const fk = of.festivali[k];
-			(fk).id = k;
-			fests.push(fk);
-			console.log(fk);
-		}
-	);
-	*/
-	//console.log(sviFestivali);
-	//console.log(fests);
 
 	
 	const getfbDB = (vr, cb, path) => {
@@ -175,6 +154,10 @@ export default function App() {
 
 	}
 
+	const handleEditFestival = () => {
+
+	}
+
 	
 	useEffect(() => {
 		getfbDB(organizatoriFestivala, setOrganizatoriFestivala, "organizatoriFestivala");
@@ -210,7 +193,7 @@ export default function App() {
 								handleDeleteOrganizator={handleDeleteOrganizator} 
 								handleEditOrganizator={handleEditOrganizator}
 								/>} />
-					<Route path="festivaliAdmin" element={<FestivaliAdmin festivali={sviFestivali} organizatori={organizatoriFestivala} />} />
+					<Route path="festivaliAdmin" element={<FestivaliAdmin festivali={sviFestivali} organizatori={organizatoriFestivala} handleEditFestival={handleEditFestival} />} />
 					<Route path="registracija" element={<Registracija handlePutKorisnik={handlePutKorisnik} />} />
 					<Route path="noviOrganizator" element={<NoviOrganizator handlePutOrganizator={handlePutOrganizator} />} />
 					<Route path="noviFestival" element={<NoviFestival handlePutFestival={handlePutFestival} organizatori={organizatoriFestivala} />} />

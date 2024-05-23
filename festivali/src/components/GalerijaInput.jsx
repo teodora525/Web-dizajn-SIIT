@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 const GalerijaInput = ({slike}) => {
-    console.log(slike);
+
     return (
     <>
     <div className='listaSlika'>
