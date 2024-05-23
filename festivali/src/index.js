@@ -149,13 +149,24 @@ export default function App() {
 		remove(ref(db,'organizatoriFestivala/' + id));
 	}
 
-
-	const handlePutFestival = () => {
-
+	const handlePutFestival = (naziv, opis, slike, tip, prevoz, cena, maxOsoba, festivali) => {
+		set(ref(db,'festivali/' + festivali + "/" + push(ref(db, 'festivali/' + festivali)).key), {
+			naziv: naziv,
+			opis: opis,
+			slike: slike,
+			tip: tip,
+			prevoz: prevoz,
+			cena: cena,
+			maxOsoba: maxOsoba
+		  });
 	}
 
 	const handleEditFestival = () => {
 
+	}
+
+	const handleDeleteFestival = (id, festivali) => {
+		remove(ref(db,'festivali/' + festivali + "/" + id));
 	}
 
 	
@@ -193,7 +204,10 @@ export default function App() {
 								handleDeleteOrganizator={handleDeleteOrganizator} 
 								handleEditOrganizator={handleEditOrganizator}
 								/>} />
-					<Route path="festivaliAdmin" element={<FestivaliAdmin festivali={sviFestivali} organizatori={organizatoriFestivala} handleEditFestival={handleEditFestival} />} />
+					
+					<Route path="festivaliAdmin" element={<FestivaliAdmin festivali={sviFestivali} organizatori={organizatoriFestivala} 
+					handleEditFestival={handleEditFestival} handleDeleteFestival={handleDeleteFestival}/>} />
+
 					<Route path="registracija" element={<Registracija handlePutKorisnik={handlePutKorisnik} />} />
 					<Route path="noviOrganizator" element={<NoviOrganizator handlePutOrganizator={handlePutOrganizator} />} />
 					<Route path="noviFestival" element={<NoviFestival handlePutFestival={handlePutFestival} organizatori={organizatoriFestivala} />} />
