@@ -2,7 +2,7 @@ import React from 'react';
 import './FestivalAdminCard.css';
 import { useState } from 'react';
 
-const FestivalAdminCard = ({festival, organizator, handleEditFestival}) => {
+const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDeleteFestival}) => {
             
     const [popup, setPopup] = useState(false);
 
@@ -34,6 +34,10 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival}) => {
         const status = handleEditFestival(naziv, opis, slike, tip, prevoz, maxOsoba, festival.parentId);
     }
 
+    const handleSubmitDeleteFestival = () => {
+        handleDeleteFestival(festival.id, festival.parentId);
+    }
+
     return (
                 <>
                 <div className='festivalAdminCard' >
@@ -49,7 +53,7 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival}) => {
                     </div>
                     <div className='kontrole'>
                         <button onClick={pop}>Izmeni</button>
-                        <button>Obriši</button>
+                        <button onClick={handleSubmitDeleteFestival}>Obriši</button>
                     </div>
                 </div>
 

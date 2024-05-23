@@ -4,7 +4,7 @@ import './Registracija.css'
 import Headerline from '../components/Headerline';
 import GalerijaInput from '../components/GalerijaInput';
 
-const NoviFestival = ({handlePutFestival, organizatori}) => {
+const NoviFestival = ({handlePutFestival, handleDeleteFestival, organizatori}) => {
     const [naziv, setNaziv] = useState("");
     const [opis, setOpis] = useState("");
     const [slike, setSlike] = useState([]);
@@ -13,7 +13,8 @@ const NoviFestival = ({handlePutFestival, organizatori}) => {
     const [cena, setCena] = useState("");
     const [maxOsoba, setMaxOsoba] = useState("");
     const [slikaInput, setSlikaInput] = useState("");
-
+    const [selectOrganizator, setSelectOtganizator] = useState("");
+    
     const handleChangeNaziv = (e) => setNaziv(e.target.value);
     const handleChangeOpis = (e) => setOpis(e.target.value);
     const handleChangeTip = (e) => setTip(e.target.value);
@@ -28,9 +29,14 @@ const NoviFestival = ({handlePutFestival, organizatori}) => {
         setSlikaInput("");
     }
 
+    const handleChangeSelectOrganizator = (e) =>  setSelectOtganizator(e.target.value);
 
     const handleSubmitNoviFestival = () => {
+        const organizator = organizatori.find((o) => {
+            return o.naziv === selectOrganizator;
+        });
 
+        handlePutFestival(naziv, opis, slike, tip, prevoz, cena, maxOsoba, organizator.festivali);
     }
 
 
@@ -47,7 +53,7 @@ const NoviFestival = ({handlePutFestival, organizatori}) => {
             <span>Max osoba:</span><input id="maxOsobaInput" type='text' value={maxOsoba} onChange={handleChangeMaxOsoba} placeholder='Max osoba' />
 
             <span>Organizator:</span>
-            <select>
+            <select value={selectOrganizator} onChange={handleChangeSelectOrganizator}>
             <option></option>
             {organizatori.map ((organizator) => {
                 return (<option key={organizator.id}> {organizator.naziv} </option>);
