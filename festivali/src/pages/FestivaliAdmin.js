@@ -15,6 +15,7 @@ const FestivaliAdmin = ({festivali, organizatori, handleEditFestival, handleDele
 
         {festivali.map((festival) => { 
             const org = organizatori.find((o) => o.festivali === festival.parentId);
+            
 
             return (<FestivalAdminCard key={festival.id} festival={festival} organizator={org} handleEditFestival={handleEditFestival} handleDeleteFestival={handleDeleteFestival} /> );
         })

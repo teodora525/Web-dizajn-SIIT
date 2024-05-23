@@ -1,18 +1,19 @@
 import React from 'react';
 import './FestivalAdminCard.css';
 import { useState } from 'react';
+import GalerijaInput from './GalerijaInput';
 
 const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDeleteFestival}) => {
             
     const [popup, setPopup] = useState(false);
 
-    const [naziv, setNaziv] = useState("");
-    const [opis, setOpis] = useState("");
-    const [slike, setSlike] = useState([]);
-    const [tip, setTip] = useState("");
-    const [prevoz, setPrevoz] = useState("");
-    const [cena, setCena] = useState("");
-    const [maxOsoba, setMaxOsoba] = useState("");
+    const [naziv, setNaziv] = useState(festival.naziv);
+    const [opis, setOpis] = useState(festival.opis);
+    const [slike, setSlike] = useState(festival.slike);
+    const [tip, setTip] = useState(festival.tip);
+    const [prevoz, setPrevoz] = useState(festival.prevoz);
+    const [cena, setCena] = useState(festival.cena);
+    const [maxOsoba, setMaxOsoba] = useState(festival.maxOsoba);
     const [slikaInput, setSlikaInput] = useState("");
 
     const handleChangeNaziv = (e) => setNaziv(e.target.value);
@@ -31,7 +32,7 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
 	}
 
     const handleSubmitEditFestival = () => {
-        const status = handleEditFestival(naziv, opis, slike, tip, prevoz, maxOsoba, festival.parentId);
+        const status = handleEditFestival(festival.id, naziv, opis, slike, tip, prevoz, maxOsoba, festival.parentId);
     }
 
     const handleSubmitDeleteFestival = () => {
@@ -47,7 +48,7 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
                     <div className='prevoz'><span>Prevoz:</span><span>{festival.prevoz}</span></div>
                     <div className='cenaFestivala'><span>Cena:</span><span>{festival.cena}</span></div>
                     <div className='maxOsoba'><span>Maksimum osoba:</span><span>{festival.maxOsoba}</span></div>
-                    <div className='organizatorFestivala'><span>Organizator:</span><span>{organizator.naziv}</span></div>
+                    {/*<div className='organizatorFestivala'><span>Organizator:</span><span>{organizator.naziv}</span></div> */}
                     <div className='galerija'>
                     {festival.slike.map((s) => (<img key={s} src={s} alt={s} />))}
                     </div>
@@ -67,6 +68,7 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
                     <span>Prevoz:</span><input id="prevozInput" type='text' value={prevoz} onChange={handleChangePrevoz} placeholder='Prevoz' />
                     <span>Cena:</span><input id="cenaInput" type='text' value={cena} onChange={handleChangeCena} placeholder='Cena' />
                     <span>Max osoba:</span><input id="maxOsobaInput" type='text' value={maxOsoba} onChange={handleChangeMaxOsoba} placeholder='Max osoba' />
+                    
                             <button onClick={handleSubmitEditFestival} >Izmeni festival</button>
                 </div>
                     </div>

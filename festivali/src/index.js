@@ -161,7 +161,16 @@ export default function App() {
 		  });
 	}
 
-	const handleEditFestival = () => {
+	const handleEditFestival = (id, naziv, opis, slike, tip, prevoz, cena, maxOsoba, festivali) => {
+		update(ref(db,'festivali/' + festivali + "/" + id), {
+			naziv: naziv,
+			opis: opis,
+			slike: slike,
+			tip: tip,
+			prevoz: prevoz,
+			cena: cena,
+			maxOsoba: maxOsoba
+		  });
 
 	}
 
@@ -176,9 +185,6 @@ export default function App() {
 		getfbDB(korisnici, setKorisnici, "korisnici");
 		
 	  }, []);
-
-
-//console.log(orgs);
 
 
 	return (

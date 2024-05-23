@@ -33,7 +33,8 @@ const OrganizatoriAdminCard = ({organizator, handleEditOrganizator, handleDelete
 		setPopup(false);
 	}
 
-
+    console.log(organizator);
+    
     const handleDeleteOrganizatorButtonClick = () => {
         handleDeleteOrganizator(organizator.id, organizator.festivali);
         //console.log(organizator, organizator.festivali);
