@@ -1,0 +1,23 @@
+.organizatori-lista {
+    list-style: none;
+    padding: 0;
+}
+.organizatori-lista li {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    text-decoration: none;
+    color: #fff;
+    background-color: #79745C;
+    border-radius: 15px;
+}
+.organizatori-lista li a {
+    color: #fff; 
+    text-decoration: none; 
+}
+.organizatori-lista li:hover {
+    background-color:  #704E2E;
+    cursor: pointer;
+}

@@ -1,0 +1,110 @@
+nav {
+    background-color: #EEE0CB;
+    color: #36453B;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    border-bottom: #C2C1A5;
+
+}
+nav a {
+    color: #36453B;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+nav a:hover {
+    background-color: #C2C1A5;
+    color: #fff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #704E2E;
+    border-radius: 5px;
+  }
+  
+  .dropbtn:hover {
+    background-color:  #C2C1A5;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:  #704E2E;
+    min-width: 160px;
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color:  #C2C1A5
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+button {
+    background-color: #EEE0CB; 
+    border: none; 
+    color: #36453B; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: #C2C1A5; 
+    border-radius: 5px;
+}
+
+.prijavaBG {
+  display: relative;
+  background-color: white;
+  position: fixed;
+  top: 20%;
+  bottom: 20%;
+  left: 20%;
+  right: 20%;
+  min-width: 520px;
+}
+
+.prijavaBlok {
+  display: grid;
+  padding: 3rem;
+  align-self: center;
+  align-items: center;
+  gap: 0.5rem;
+  grid-template-columns: 8rem auto;
+}
+
+.izlazBtn {
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+}
+

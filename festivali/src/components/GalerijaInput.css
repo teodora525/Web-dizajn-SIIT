@@ -1,0 +1,8 @@
+.galerija {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.galerija > img {
+    max-width: 120px;
+}

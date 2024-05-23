@@ -1,0 +1,16 @@
+.registracijaKontejner {
+    display: flex;
+}
+
+.registracijaForma {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: 560px;
+    padding: 1rem;
+    gap: 5px;
+    align-content: center;
+}
+
+.invalid {
+    border-color: red;
+}

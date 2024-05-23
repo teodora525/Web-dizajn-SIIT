@@ -1,0 +1,41 @@
+.organizator-item {
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+.organizator-item a {
+    text-decoration: none; 
+    color: inherit; 
+    text-align: center;
+}
+
+.organizator-item a:hover {
+    text-decoration: none; 
+}
+
+.organizator-item img {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 5px;
+    transition: transform 0.3s ease; 
+}
+
+.organizator-item img:hover {
+    transform: scale(1.1); 
+}
+.organizator-item h2 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color:  #704E2E; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+}
+
+.festivali-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
