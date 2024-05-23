@@ -37,8 +37,10 @@ const NoviFestival = ({handlePutFestival, handleDeleteFestival, organizatori}) =
         });
 
         handlePutFestival(naziv, opis, slike, tip, prevoz, cena, maxOsoba, organizator.festivali);
+        navigate("/festivaliAdmin");
     }
 
+    const navigate = useNavigate();
 
     return (
         <>
