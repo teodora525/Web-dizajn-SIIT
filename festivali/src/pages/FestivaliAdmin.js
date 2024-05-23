@@ -4,7 +4,7 @@ import FestivalAdminCard from '../components/FestivalAdminCard';
 import { useNavigate } from 'react-router-dom';
 
 
-const FestivaliAdmin = ({festivali, organizatori, handleEditFestival}) => {
+const FestivaliAdmin = ({festivali, organizatori, handleEditFestival, handleDeleteFestival}) => {
 
     const navigate= useNavigate();
 
@@ -16,7 +16,7 @@ const FestivaliAdmin = ({festivali, organizatori, handleEditFestival}) => {
         {festivali.map((festival) => { 
             const org = organizatori.find((o) => o.festivali === festival.parentId);
 
-            return (<FestivalAdminCard key={festival.id} festival={festival} organizator={org}/> );
+            return (<FestivalAdminCard key={festival.id} festival={festival} organizator={org} handleEditFestival={handleEditFestival} handleDeleteFestival={handleDeleteFestival} /> );
         })
 }
     </>
