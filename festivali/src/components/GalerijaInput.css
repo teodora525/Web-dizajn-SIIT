@@ -1,8 +1,21 @@
-.galerija {
+
+.listaSlika {
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
-.galerija > img {
-    max-width: 120px;
+.listaSlika ul{
+    list-style: none;
 }
+
+.pic-list > button{
+    position: absolute;
+    width: 15px;
+    color: red;
+    border-radius: 16px;
+    padding: 0px;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+

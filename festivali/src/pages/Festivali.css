@@ -1,5 +1,4 @@
-
-.organizatori-grid {
+.festivali-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: #C2C1A5;
@@ -10,4 +9,3 @@
     margin: 20px auto;
     font-family: 'Arial', sans-serif;
 }
-

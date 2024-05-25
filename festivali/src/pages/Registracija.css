@@ -1,16 +1,15 @@
-.registracijaKontejner {
-    display: flex;
-}
 
 .registracijaForma {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    max-width: 560px;
-    padding: 1rem;
-    gap: 5px;
-    align-content: center;
+    background-color: #C2C1A5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    font-family: 'Arial', sans-serif;
 }
 
-.invalid {
-    border-color: red;
+.registracijaForma > button {
+    grid-column: 1 / span 2;
 }

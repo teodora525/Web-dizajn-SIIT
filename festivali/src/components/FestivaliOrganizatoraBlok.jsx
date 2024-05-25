@@ -4,7 +4,7 @@ import FestivalThumb from "../components/FestivalThumb";
 
 const FestivaliOrganizatoraBlok = ({organizator, festivaliOrganizatora}) => {
 
-    const organizatorLink = "/festivali/" + organizator.id;
+    const organizatorLink = "/organizator/" + organizator.id;
     if (typeof festivaliOrganizatora !== "undefined") {
     return (
         <>
@@ -13,7 +13,6 @@ const FestivaliOrganizatoraBlok = ({organizator, festivaliOrganizatora}) => {
         {Object.keys(festivaliOrganizatora).filter( k => k !== "id" ).map(k => {
             
             festivaliOrganizatora[k].id = k;
-            //console.log(festivaliOrganizatora[k]);
             return <FestivalThumb key={k} festivalItem={festivaliOrganizatora[k]} />  
         })
         }  

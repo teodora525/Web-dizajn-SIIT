@@ -2,6 +2,7 @@ import React from 'react';
 import Headerline from '../components/Headerline';
 import KorisnikAdminCard from '../components/KorisnikAdminCard';
 import { useNavigate } from 'react-router-dom';
+import './Korisnici.css';
 
 const Korisnici = ({korisnici, handleEditKorisnik, handleDeleteKorisnik}) => {
 
@@ -9,19 +10,16 @@ const Korisnici = ({korisnici, handleEditKorisnik, handleDeleteKorisnik}) => {
 
     if (typeof korisnici !== "undefined") {
         return (
-
     <>
     <Headerline naslov={"Administracija korisnika"} />
     
-    <div className='dugme'>
-        <button onClick={() => navigate('/registracija')}>Dodaj korisnika</button>
-    </div>
+    <button onClick={() => navigate('/registracija')}>Dodaj korisnika</button>
 
+    <div className='korisniciAdminGrid' >
     {korisnici.map((korisnik) => {
-        //console.log(korisnik)
         return <KorisnikAdminCard key={korisnik.id} korisnik={korisnik} handleDeleteKorisnik={handleDeleteKorisnik} handleEditKorisnik={handleEditKorisnik} />
     })}
-    
+    </div>
     </>
     );
 } else {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './KorisnikAdminCard.css';
-//import { useNavigate } from 'react-router-dom';
 
 
 const KorisnikAdminCard = ({korisnik, handleEditKorisnik, handleDeleteKorisnik}) => {
@@ -44,16 +43,12 @@ const KorisnikAdminCard = ({korisnik, handleEditKorisnik, handleDeleteKorisnik})
 		setPopup(false);
 	}
 
-    //const navigate = useNavigate();
-
-
-
     const handleDeleteKorisnikButtonClick = () => handleDeleteKorisnik(korisnikId) ;
 
     if (typeof korisnik !== "undefined") {
     return (
         <>
-                <div className='korisnikAdminCard' >
+                {!popup &&<div className='korisnikAdminCard' >
                     <div className='korisnickoIme'>
                         <span className='label'>Korisničko ime:</span><span>{korisnik.korisnickoIme}</span>
                     </div>
@@ -86,10 +81,10 @@ const KorisnikAdminCard = ({korisnik, handleEditKorisnik, handleDeleteKorisnik})
                         <button onClick={pop}>Izmeni</button>
                         <button onClick={handleDeleteKorisnikButtonClick}>Obriši</button>
                     </div>
-                </div>
+                </div>}
 
                 {popup && <div className='editPopupBG'>
-		            <button className="izlazBtn" onClick={closeEditPopup}>X</button>
+		            <div className='closeDiv'><button className="izlazBtn" onClick={closeEditPopup}>X</button></div>
 		            <div className='editKorisnikBlok'>
 			        <div className='editKorisnikForma'>
                             <span>Ime:</span><input id="imeInput" type='text' value={ime} onChange={handleChangeIme} placeholder='Vaše ime' />
@@ -100,9 +95,9 @@ const KorisnikAdminCard = ({korisnik, handleEditKorisnik, handleDeleteKorisnik})
                             <span>Datum rođenja:</span><input id="datumRodjenjaInput" type='date' value={datumRodjenja} onChange={handleChangeDatumRodjenja} />
                             <span>Adresa:</span><input id="adresaInput" type='text' value={adresa} onChange={handleChangeAdresa} placeholder='Vaša adresa' />
                             <span>Telefon:</span><input id="telefonInput" type='text' value={telefon} onChange={handleChangeTelefon} placeholder='Vaš telefon' />
-                            <span>Zanimanje:</span><input id="zanimanjeInput" type='text' value={zanimanje} onChange={handleChangeZanimanje} placeholder='Vaše zanimanje' />
-                            <button onClick={handleSubmitEditKorisnik} >Registrujte se</button>
+                            <span>Zanimanje:</span><input id="zanimanjeInput" type='text' value={zanimanje} onChange={handleChangeZanimanje} placeholder='Vaše zanimanje' /> 
                         </div>
+                        <button onClick={handleSubmitEditKorisnik} >Zapamti</button>
 		            </div>
 		        </div>}
                 

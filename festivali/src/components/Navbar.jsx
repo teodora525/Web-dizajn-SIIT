@@ -50,7 +50,7 @@ const Navbar = ({korisnici}) => {
 			
 		</nav>
 		{popup && <div className='prijavaBG'>
-		<button className="izlazBtn" onClick={closePrijavaPopup}>X</button>
+		<div className='closeDiv'><button className="izlazBtn" onClick={closePrijavaPopup}>X</button></div>
 		<div className='prijavaBlok'>
 			<span>Korisničko ime:</span><input id="korisnickoIme" type="text" value={korisnickoIme} onChange={handleChangeKIme} />
 			<span>Lozinka:</span><input id="lozinka" type="password" value={lozinka} onChange={handleChangeLozinka} />

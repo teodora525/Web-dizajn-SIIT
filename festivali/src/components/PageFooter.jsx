@@ -1,4 +1,3 @@
-import "./PageFooter.css";
 
 const PageFooter = () => {
 

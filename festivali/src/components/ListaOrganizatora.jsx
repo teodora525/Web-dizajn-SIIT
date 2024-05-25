@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./ListaOrganizatora.css";
+
 
 
 const ListaOrganizatora = ({organizatori}) => {
@@ -12,11 +12,10 @@ const ListaOrganizatora = ({organizatori}) => {
             const tolink = 'organizator/' + organizator.id;
 		    return (
 		            <li key={organizator.id}><Link id={organizator.id} to={tolink} > {organizator.naziv}</Link></li>
-            );
-        }
-    )
+                );
+            }
+        )
     }
-
     </div>
     );
 }

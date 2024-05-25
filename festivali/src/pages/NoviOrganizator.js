@@ -11,7 +11,6 @@ const NoviOrganizator = ({handlePutOrganizator}) => {
     const [kontaktTelefon, setKontaktTelefon] = useState("");
     const [email, setEmail] = useState("");
     const [validEmail, setValidEmail] = useState("valid");
-    // const [festivali, setFestivali] = useState("");
 
     const handleChangeNaziv = (e) => setNaziv(e.target.value);
     const handleChangeAdresa = (e) => setAdresa(e.target.value);
@@ -33,18 +32,6 @@ const NoviOrganizator = ({handlePutOrganizator}) => {
             alert("Neuspelo kreiranje korisnika: " + status);
         }
     }
-
-    /*
-    "naziv": "BeoArt Fest",
-        "adresa": "Knez Mihailova 48, Beograd, 11000",
-        "godinaOsnivanja": "2015",
-        "logo": "https://i.imgur.com/OV15WM6.jpeg",
-        "kontaktTelefon": "011/3042-568",
-        "email": "kontakt@beoartfest.rs",
-        "festivali": "-MNVEu6iMr2EFlQO6TW63"
-        */
-
-    
 
     return (
         <>

@@ -1,6 +1,4 @@
 
-import "./Headerline.css";
-
 
 const Headerline = ({naslov}) => {
 	return (

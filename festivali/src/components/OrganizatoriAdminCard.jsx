@@ -13,7 +13,6 @@ const OrganizatoriAdminCard = ({organizator, handleEditOrganizator, handleDelete
     const [kontaktTelefon, setKontaktTelefon] = useState(organizator.kontaktTelefon);
     const [email, setEmail] = useState(organizator.email);
     const [validEmail, setValidEmail] = useState("valid");
-    // const [festivali, setFestivali] = useState("");
 
     const handleChangeNaziv = (e) => setNaziv(e.target.value);
     const handleChangeAdresa = (e) => setAdresa(e.target.value);
@@ -37,7 +36,6 @@ const OrganizatoriAdminCard = ({organizator, handleEditOrganizator, handleDelete
     
     const handleDeleteOrganizatorButtonClick = () => {
         handleDeleteOrganizator(organizator.id, organizator.festivali);
-        //console.log(organizator, organizator.festivali);
     }
 
 
@@ -48,7 +46,7 @@ const OrganizatoriAdminCard = ({organizator, handleEditOrganizator, handleDelete
     if (typeof organizator !== "undefined") {
     return (
                 <>
-                <div className='organizator'>
+                {!popup && <div className='organizator'>
                     <div>
                         <span className='label'>Naziv:</span><span>{organizator.naziv}</span>
                     </div>
@@ -73,9 +71,9 @@ const OrganizatoriAdminCard = ({organizator, handleEditOrganizator, handleDelete
                         <button onClick={pop}>Izmeni</button>
                         <button onClick={handleDeleteOrganizatorButtonClick}>Obriši</button>
                     </div>
-                </div>
+                </div>}
                 {popup && <div className='editPopupBG'>
-                <button className="izlazBtn" onClick={closeEditPopup}>X</button>
+                <div className='closeDiv'><button className="izlazBtn" onClick={closeEditPopup}>X</button></div>
                 <div>
                 <div className='registracijaForma'>
                     <span>Naziv:</span><input id="nazivInput" type='text' value={naziv} onChange={handleChangeNaziv} placeholder='Naziv organizatora' />
@@ -84,16 +82,12 @@ const OrganizatoriAdminCard = ({organizator, handleEditOrganizator, handleDelete
                     <span>Logo:</span><input id="logoInput" type='text' value={logo} onChange={handleChangeLogo} placeholder='Logo organizatora' />
                     <span>Kontakt telefon:</span><input id="kontaktTelefonInput" type='text' value={kontaktTelefon} onChange={handleChangeKontaktTelefon} placeholder='Kontakt telefon' />
                     <span>Email:</span><input id="emailInput" className={validEmail} type='text' value={email} onChange={handleChangeEmail} placeholder='Email adresa organizatora' />
-                    <span>{organizator.festivali}</span>
-                    <button onClick={handleSubmitEditOrganizator} >Izmeni organizatora</button>
+                    <button onClick={handleSubmitEditOrganizator} >Zapamti</button>
                 </div>
                     </div>
                 </div>
             } 
-            </>
-
-                
-                
+            </>       
     );
 } 
 else { return (

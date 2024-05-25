@@ -3,8 +3,8 @@ import './FestivalAdminCard.css';
 import { useState } from 'react';
 import GalerijaInput from './GalerijaInput';
 
-const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDeleteFestival}) => {
-            
+const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDeleteFestival, organizatori}) => {
+
     const [popup, setPopup] = useState(false);
 
     const [naziv, setNaziv] = useState(festival.naziv);
@@ -15,6 +15,7 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
     const [cena, setCena] = useState(festival.cena);
     const [maxOsoba, setMaxOsoba] = useState(festival.maxOsoba);
     const [slikaInput, setSlikaInput] = useState("");
+    const [selectOrganizator, setSelectOrganizator] = useState(organizator.naziv);
 
     const handleChangeNaziv = (e) => setNaziv(e.target.value);
     const handleChangeOpis = (e) => setOpis(e.target.value);
@@ -22,6 +23,24 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
     const handleChangePrevoz = (e) => setPrevoz(e.target.value);
     const handleChangeCena = (e) =>  setCena(e.target.value);
     const handleChangeMaxOsoba = (e) => setMaxOsoba(e.target.value);
+    const handleChangeSelectOrganizator = (e) => setSelectOrganizator(e.target.value);
+    const handleChangeSlikaInput = (e) => setSlikaInput(e.target.value);
+    const handleUbaciSliku = () => {
+        const noveSlike = slike;
+        noveSlike.push(slikaInput);
+        setSlike(noveSlike);
+        setSlikaInput("");
+    }
+
+    const handleRemoveSlika = (s) => {
+        const noveSlike = slike;
+        const index = noveSlike.indexOf(s);
+        console.log(index);
+        if (index > -1) {
+            noveSlike.splice(index, 1);
+        }
+        setSlike(noveSlike);
+    }
 
     const pop = () => {
 		setPopup(true);
@@ -32,7 +51,9 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
 	}
 
     const handleSubmitEditFestival = () => {
-        const status = handleEditFestival(festival.id, naziv, opis, slike, tip, prevoz, maxOsoba, festival.parentId);
+        const org = organizatori.find((o) => selectOrganizator === o.naziv );
+        const noviParentId = org.festivali;
+        handleEditFestival(festival.id, naziv, opis, slike, tip, prevoz, cena, maxOsoba, noviParentId, organizator.festivali);
     }
 
     const handleSubmitDeleteFestival = () => {
@@ -41,36 +62,54 @@ const FestivalAdminCard = ({festival, organizator, handleEditFestival, handleDel
 
     return (
                 <>
-                <div className='festivalAdminCard' >
-                    <div className='nazivFestivala'><span>Naziv:</span><span>{festival.naziv}</span></div>
-                    <div className='opisFesivala'><span>Opis:</span><span>{festival.opis}</span></div>
-                    <div className='tipFestivala'><span>Tip festivala:</span><span>{festival.tip}</span></div>
-                    <div className='prevoz'><span>Prevoz:</span><span>{festival.prevoz}</span></div>
-                    <div className='cenaFestivala'><span>Cena:</span><span>{festival.cena}</span></div>
-                    <div className='maxOsoba'><span>Maksimum osoba:</span><span>{festival.maxOsoba}</span></div>
-                    {/*<div className='organizatorFestivala'><span>Organizator:</span><span>{organizator.naziv}</span></div> */}
-                    <div className='galerija'>
+                {!popup && <div className='festivalAdminCard' >
+                    <div className='nazivFestivala'><span className='.label'>Naziv:</span><span>{festival.naziv}</span></div>
+                    <div className='opisFesivala'><span className='.label'>Opis:</span><span>{festival.opis}</span></div>
+                    <div className='tipFestivala'><span className='.label'>Tip festivala:</span><span>{festival.tip}</span></div>
+                    <div className='prevoz'><span className='.label'>Prevoz:</span><span>{festival.prevoz}</span></div>
+                    <div className='cenaFestivala'><span className='.label'>Cena:</span><span>{festival.cena}</span></div>
+                    <div className='maxOsoba'><span className='.label'>Maksimum osoba:</span><span>{festival.maxOsoba}</span></div>
+                    {typeof organizator !== "undefined"?
+                    <div className='organizatorFestivala'><span className='.label'>Organizator:</span><span>{organizator.naziv}</span></div> 
+                    : <></>}
+                    <div className='galerija-pad'><div className='galerija'>
                     {festival.slike.map((s) => (<img key={s} src={s} alt={s} />))}
+                    </div>
                     </div>
                     <div className='kontrole'>
                         <button onClick={pop}>Izmeni</button>
                         <button onClick={handleSubmitDeleteFestival}>Obriši</button>
                     </div>
-                </div>
+                </div>}
 
                 {popup && <div className='editPopupBG'>
-                <button className="izlazBtn" onClick={closeEditPopup}>X</button>
+                <div className='closeDiv' ><button className="izlazBtn" onClick={closeEditPopup}>X</button></div>
                 <div>
-                <div className='registracijaForma'>
-                    <span>Naziv:</span><input id="nazivInput" type='text' value={naziv} onChange={handleChangeNaziv} placeholder='Naziv festivala' />
-                    <span>Opis:</span><textarea id="opisTextArea" value={opis} onChange={handleChangeOpis} placeholder='Opis festivala' />
-                    <span>Tip:</span><input id="tipInput" type='text' value={tip} onChange={handleChangeTip} placeholder='Tip festivala' />
-                    <span>Prevoz:</span><input id="prevozInput" type='text' value={prevoz} onChange={handleChangePrevoz} placeholder='Prevoz' />
-                    <span>Cena:</span><input id="cenaInput" type='text' value={cena} onChange={handleChangeCena} placeholder='Cena' />
-                    <span>Max osoba:</span><input id="maxOsobaInput" type='text' value={maxOsoba} onChange={handleChangeMaxOsoba} placeholder='Max osoba' />
-                    
-                            <button onClick={handleSubmitEditFestival} >Izmeni festival</button>
-                </div>
+                <div className='editFestivalForma'>
+                    <span className='.label'>Naziv:</span><input id="nazivInput" type='text' value={naziv} onChange={handleChangeNaziv} placeholder='Naziv festivala' />
+                    <span className='.label'>Opis:</span><textarea id="opisTextArea" value={opis} onChange={handleChangeOpis} placeholder='Opis festivala' />
+                    <span className='.label'>Tip:</span><input id="tipInput" type='text' value={tip} onChange={handleChangeTip} placeholder='Tip festivala' />
+                    <span className='.label'>Prevoz:</span><input id="prevozInput" type='text' value={prevoz} onChange={handleChangePrevoz} placeholder='Prevoz' />
+                    <span className='.label'>Cena:</span><input id="cenaInput" type='text' value={cena} onChange={handleChangeCena} placeholder='Cena' />
+                    <span className='.label'>Max osoba:</span><input id="maxOsobaInput" type='text' value={maxOsoba} onChange={handleChangeMaxOsoba} placeholder='Max osoba' />
+                    <span className='.label'>Organizator:</span>
+                    <select value={selectOrganizator} onChange={handleChangeSelectOrganizator}>
+                    <option></option>
+                    {organizatori.map ((o) => {
+                        return (<option key={o.id}>{o.naziv}</option>);
+                    }) 
+                    }
+                    </select> 
+                    </div>
+                    <div className='galerijaInsertKontrole'>
+                    <input id="slikaInput" type='text' value={slikaInput} onChange={handleChangeSlikaInput} placeholder='Link ka slici' />
+                    <button onClick={handleUbaciSliku}>Ubaci sliku</button>
+                    </div>
+                    <div>
+                    <GalerijaInput slike={slike} handleRemoveSlika={handleRemoveSlika} />
+                    </div>
+                    <button onClick={handleSubmitEditFestival} >Zapamti</button>
+                
                     </div>
                 </div>
             } 

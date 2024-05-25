@@ -1,5 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #EEE0CB;
+	color: #36453B;
+	font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    background-color:  #C2C1A5;
+    color: #fff;
+    padding: 10px;
+    margin-top: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+footer {
+    background-color: #C2C1A5;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    color: #555;
+    text-align: center;
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+button {
+    background-color: #EEE0CB; 
+    border: none; 
+    color: #36453B; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: #C2C1A5; 
+    border-radius: 5px;
+}
+
 .container {
+	display: grid;
+	align-items: center;
     width: 80%;
     margin: 20px auto;
     padding: 3rem;
 }
+
+.img {
+	max-width: 120px;
+}
+
+
+

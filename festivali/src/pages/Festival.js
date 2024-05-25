@@ -7,9 +7,6 @@ import './Festival.css';
 const Festival = ({festivaliOrganizatora}) => {
 
     const location = useLocation().pathname.replace("/festival/","");
-    //console.log(location);
-
-    //console.log(festivaliOrganizatora);
 
     const festival = [];
 
@@ -17,40 +14,24 @@ const Festival = ({festivaliOrganizatora}) => {
         const l = element[location];
         if (l !== null && l !==undefined)  festival.push(l); });
 
-    //console.log(festival);
     if (typeof festival[0] !== "undefined") {
     return (
         <>
         <header>
-        <h1>{festival[0].naziv}</h1>
+        <Headerline naslov={festival[0].naziv} />
     </header>
     
-    <table className="tabela">
-        <tr>
-            <th>Cena</th>
-            <td>{festival[0].cena}</td>
-          </tr>
-        <tr>
-          <th>Maksimalan broj osoba</th>
-          <td>{festival[0].maxOsoba}</td>
-        </tr>
-        <tr>
-          <th>Naziv</th>
-          <td>{festival[0].naziv}</td>
-        </tr>
-        <tr>
-          <th>Opis</th>
-          <td>{festival[0].opis}</td>
-        </tr>
-        <tr>
-          <th>Prevoz</th>
-          <td>{festival[0].prevoz}</td>
-        </tr>
-      </table>
+    <div className='festival' style={{maxWidth:"650px"}}>
+    <div><span className='labela'>Cena:</span><span>{festival[0].cena}</span></div>
+            <div><span className='labela'>Maksimalan broj osoba:</span><span>{festival[0].maxOsoba}</span></div>
+            <div><span className='labela' >Naziv:</span><span>{festival[0].naziv}</span></div>
+            <div><span className='labela'>Opis:</span><span>{festival[0].opis}</span></div>
+            <div><span className='labela'>Prevoz:</span><span>{festival[0].prevoz}</span></div>
+      </div>
 
       <h2>Galerija slika:</h2>
 
-      <div className='gallery'>
+      <div className='galerija'>
       {festival[0].slike.map((slika) => {
         return (<div key={slika} className="gallery-item"> <img src={slika} alt=""></img></div>)
       })}

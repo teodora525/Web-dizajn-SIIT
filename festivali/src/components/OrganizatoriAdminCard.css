@@ -1,5 +1,7 @@
+
+
 .organizator {
-    background-color: #f9f9f9;
+    background-color: #C2C1A5;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -49,4 +51,27 @@
 
 .organizator button:hover {
     background-color: #0056b3;
+}
+
+.editPopupBG {
+    background-color: #C2C1A5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    font-family: 'Arial', sans-serif;
+}
+
+.registracijaForma {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.closeDiv {
+    margin-top: -20px;
+    margin-right: -15px;
+    display: flex;
+    flex-direction: row-reverse;
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
 
 import Layout from './pages/Layout';
 import Pocetna from './pages/Pocetna';
@@ -161,8 +159,8 @@ export default function App() {
 		  });
 	}
 
-	const handleEditFestival = (id, naziv, opis, slike, tip, prevoz, cena, maxOsoba, festivali) => {
-		update(ref(db,'festivali/' + festivali + "/" + id), {
+	const handleEditFestival = (id, naziv, opis, slike, tip, prevoz, cena, maxOsoba, festivali, path) => {
+		if(festivali === path) { update(ref(db,'festivali/' + path + "/" + id), {
 			naziv: naziv,
 			opis: opis,
 			slike: slike,
@@ -170,7 +168,12 @@ export default function App() {
 			prevoz: prevoz,
 			cena: cena,
 			maxOsoba: maxOsoba
-		  });
+		  	}
+			)
+		} else {
+			handleDeleteFestival(id, path);
+			handlePutFestival(naziv, opis, slike, tip, prevoz, cena, maxOsoba, festivali);
+		}
 
 	}
 
@@ -233,4 +236,3 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();
